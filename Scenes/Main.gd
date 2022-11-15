@@ -46,7 +46,7 @@ func update_subject_list(output: Dictionary):
 		var days_left: int = ((Time.get_unix_time_from_datetime_string(formated_date) - Time.get_unix_time_from_system()) / 86400)
 		
 		
-		if days_left <= 0:
+		if days_left < 0:
 			expired_subject_count += 1
 			var new_override: StyleBoxFlat = load("res://Resources/Styles/SubjectBoxStyleBox.tres").duplicate()
 			new_override.bg_color = Color("0A0A0B")
@@ -57,9 +57,14 @@ func update_subject_list(output: Dictionary):
 #			new_override.border_width_top = 0
 			subject_box_instance.add_stylebox_override("panel", new_override)
 		
-		if days_left <= 5 and days_left >= 0:
+		if days_left <= 5 and days_left > 0:
 			subject_box_instance.get_node("Control/Date").set_text(formated_date + "\n" + str(days_left+1) + "d left")
-		elif days_left <= 0:
+		elif days_left == 0:
+			var new_override: StyleBoxFlat = load("res://Resources/Styles/SubjectBoxStyleBox.tres").duplicate()
+			new_override.border_color = Color.goldenrod
+			subject_box_instance.add_stylebox_override("panel", new_override)
+			subject_box_instance.get_node("Control/Date").set_text(formated_date + "\n" + "TODAY")
+		elif days_left < 0:
 			subject_box_instance.get_node("Control/Date").set_text(formated_date)
 		else:
 			subject_box_instance.get_node("Control/Date").set_text(output["Subjects"][str(i)]["date"])

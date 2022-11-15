@@ -15,7 +15,7 @@ run/main_scene="res://Scenes/Main.tscn"
 boot_splash/image="res://Resources/Icons/Black/icon.png"
 boot_splash/bg_color=Color( 0.0784314, 0.0784314, 0.0862745, 1 )
 config/icon="res://Resources/Icons/Black/icon.svg"
-config/windows_native_icon="res://a9dc7-211tr-001.ico"
+config/windows_native_icon="res://Resources/Icons/a9dc7-211tr-001.ico"
 
 [autoload]
 
