@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="VBoxContainer" type="VBoxContainer" groups=["schedual_container"]]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+alignment = 1

@@ -1,0 +1,344 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://Components/SubjectBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Themes/ScrollContainerWithoutScroll.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/Fonts/Lexend/Lexend-Light.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Fonts/Lexend/Lexend-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Resources/Fonts/Lexend/Lexend-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Resources/Fonts/Lexend/Lexend-Medium.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Components/ScheduleBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Components/VBox.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.419608, 0.447059, 0.556863, 0 )
+border_width_bottom = 2
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.270588, 0.278431, 0.364706, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+[sub_resource type="DynamicFont" id=17]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.0784314, 0.0784314, 0.0862745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 2
+
+[sub_resource type="Theme" id=14]
+default_font = SubResource( 17 )
+TabContainer/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
+TabContainer/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+TabContainer/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
+TabContainer/constants/hseparation = 4
+TabContainer/constants/label_valign_bg = 2
+TabContainer/constants/label_valign_fg = 0
+TabContainer/constants/side_margin = 8
+TabContainer/constants/top_margin = 24
+TabContainer/fonts/font = SubResource( 17 )
+TabContainer/icons/decrement = null
+TabContainer/icons/decrement_highlight = null
+TabContainer/icons/increment = null
+TabContainer/icons/increment_highlight = null
+TabContainer/icons/menu = null
+TabContainer/icons/menu_highlight = null
+TabContainer/styles/panel = SubResource( 13 )
+TabContainer/styles/tab_bg = SubResource( 15 )
+TabContainer/styles/tab_disabled = null
+TabContainer/styles/tab_fg = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 15
+border_width_top = 25
+border_width_right = 15
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 15
+border_width_top = 25
+border_width_right = 15
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.0784314, 0.0784314, 0.0862745, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+schedule_box = ExtResource( 8 )
+subject_box = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.0784314, 0.0862745, 1 )
+
+[node name="TopBar" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.075
+
+[node name="ColorRect" type="ColorRect" parent="TopBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0392157, 0.0392157, 0.0431373, 1 )
+
+[node name="Label" type="Label" parent="TopBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 8 )
+text = "ITf-22 proprietary VGTU app"
+align = 1
+valign = 1
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_top = 0.075
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/tab_fg = SubResource( 7 )
+custom_styles/tab_bg = SubResource( 6 )
+custom_styles/panel = SubResource( 2 )
+drag_to_rearrange_enabled = true
+
+[node name="Assignments" type="ScrollContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 78.0
+theme = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Assignments"]
+margin_right = 720.0
+margin_bottom = 1692.0
+size_flags_horizontal = 3
+custom_constants/separation = 32
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Assignments/VBoxContainer"]
+margin_right = 720.0
+
+[node name="Panel" parent="TabContainer/Assignments/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 32.0
+margin_right = 700.0
+margin_bottom = 282.0
+
+[node name="Panel2" parent="TabContainer/Assignments/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 314.0
+margin_right = 700.0
+margin_bottom = 564.0
+
+[node name="Panel3" parent="TabContainer/Assignments/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 596.0
+margin_right = 700.0
+margin_bottom = 846.0
+
+[node name="Panel4" parent="TabContainer/Assignments/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 878.0
+margin_right = 700.0
+margin_bottom = 1128.0
+
+[node name="Panel5" parent="TabContainer/Assignments/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 1160.0
+margin_right = 700.0
+margin_bottom = 1410.0
+
+[node name="Panel6" parent="TabContainer/Assignments/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 1442.0
+margin_right = 700.0
+margin_bottom = 1692.0
+
+[node name="Schedule" type="TabContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 78.0
+theme = SubResource( 14 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/tab_fg = SubResource( 9 )
+custom_styles/tab_bg = SubResource( 10 )
+custom_styles/panel = SubResource( 11 )
+
+[node name="1" type="TabContainer" parent="TabContainer/Schedule"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 85.0
+
+[node name="Monday" type="ScrollContainer" parent="TabContainer/Schedule/1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 48.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/1/Monday" instance=ExtResource( 9 )]
+margin_right = 720.0
+margin_bottom = 0.0
+
+[node name="Tuesday" type="ScrollContainer" parent="TabContainer/Schedule/1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 48.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/1/Tuesday" instance=ExtResource( 9 )]
+margin_right = 720.0
+margin_bottom = 0.0
+
+[node name="Wednesday" type="ScrollContainer" parent="TabContainer/Schedule/1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 48.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/1/Wednesday" instance=ExtResource( 9 )]
+margin_right = 720.0
+margin_bottom = 0.0
+
+[node name="Thursday" type="ScrollContainer" parent="TabContainer/Schedule/1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 48.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/1/Thursday" instance=ExtResource( 9 )]
+margin_right = 720.0
+margin_bottom = 0.0
+
+[node name="Friday" type="ScrollContainer" parent="TabContainer/Schedule/1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -7.0
+margin_right = -4.0
+margin_bottom = -43.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/1/Friday" instance=ExtResource( 9 )]
+margin_right = 712.0
+margin_bottom = 0.0
+
+[node name="2" type="TabContainer" parent="TabContainer/Schedule"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 85.0
+
+[node name="Monday" type="ScrollContainer" parent="TabContainer/Schedule/2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 48.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/2/Monday" instance=ExtResource( 9 )]
+margin_right = 720.0
+margin_bottom = 0.0
+
+[node name="Tuesday" type="ScrollContainer" parent="TabContainer/Schedule/2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -7.0
+margin_right = -4.0
+margin_bottom = -43.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/2/Tuesday" instance=ExtResource( 9 )]
+margin_right = 712.0
+margin_bottom = 0.0
+
+[node name="Wednesday" type="ScrollContainer" parent="TabContainer/Schedule/2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -7.0
+margin_right = -4.0
+margin_bottom = -43.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/2/Wednesday" instance=ExtResource( 9 )]
+margin_right = 712.0
+margin_bottom = 0.0
+
+[node name="Thursday" type="ScrollContainer" parent="TabContainer/Schedule/2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -7.0
+margin_right = -4.0
+margin_bottom = -43.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/2/Thursday" instance=ExtResource( 9 )]
+margin_right = 712.0
+margin_bottom = 0.0
+
+[node name="Friday" type="ScrollContainer" parent="TabContainer/Schedule/2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -7.0
+margin_right = -4.0
+margin_bottom = -43.0
+
+[node name="VBoxContainer" parent="TabContainer/Schedule/2/Friday" instance=ExtResource( 9 )]
+margin_right = 712.0
+margin_bottom = 0.0
+
+[node name="API" type="HTTPRequest" parent="."]
+
+[connection signal="tab_changed" from="TabContainer/Schedule/1" to="." method="_on_1_tab_changed"]
+[connection signal="tab_changed" from="TabContainer/Schedule/2" to="." method="_on_2_tab_changed"]
+[connection signal="request_completed" from="API" to="." method="_on_API_request_completed"]

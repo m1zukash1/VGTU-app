@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Fonts/Lexend/Lexend-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Resources/Fonts/Lexend/Lexend-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Resources/Styles/SubjectBoxStyleBox.tres" type="StyleBox" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+Fonts/fonts/large = SubResource( 2 )
+Fonts/fonts/normal = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 29
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Panel" type="Panel"]
+margin_right = 500.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 680, 250 )
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource( 3 )
+custom_styles/panel = ExtResource( 3 )
+
+[node name="FirstHalf" type="Control" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+rect_min_size = Vector2( 250, 200 )
+mouse_filter = 2
+
+[node name="Kas\?" type="Label" parent="FirstHalf"]
+anchor_right = 1.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 50 )
+text = "Subject"
+align = 1
+valign = 1
+
+[node name="Subject" type="Label" parent="FirstHalf"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+custom_fonts/font = SubResource( 4 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 250, 200 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control"]
+anchor_right = 1.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 50 )
+text = "Deadline / Date"
+align = 1
+valign = 1
+
+[node name="Date" type="Label" parent="Control"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+custom_fonts/font = SubResource( 5 )
+text = "1111-11-11 (Monday)"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
