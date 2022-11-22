@@ -1,6 +1,6 @@
 extends Node
 
-var cache_file = "user://VGTU-3rd-part-app.cachefile" # dont touch the spikes clone save file
+var cache_file = "user://VGTU-3rd-part-app.cachefile"
 var Delete_Save_File = false # Used for debugging purposes
 
 func _ready() -> void:

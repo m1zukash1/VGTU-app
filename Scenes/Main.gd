@@ -6,6 +6,12 @@ export var subject_box:PackedScene
 
 func _ready() -> void:
 	
+	if (OS.get_name() == "OSX" or OS.get_name() == "Windows") and !OS.is_debug_build(): #Center window for desktop users
+		OS.set_window_size(Vector2(1600,OS.get_window_size().y))
+		var screen_size = OS.get_screen_size(0)
+		var window_size = OS.get_window_size()
+		OS.set_window_position(screen_size*0.5 - window_size*0.5)
+	
 	if Cache.get_subject_dict() != null: #Loading cache
 		update_subject_list(Cache.get_subject_dict())
 		update_schedule(Cache.get_subject_dict())
@@ -21,7 +27,6 @@ func _on_API_request_completed(result: int, response_code: int, headers: PoolStr
 	update_subject_list(output)
 	update_schedule(output)
 	$TabContainer/Schedule.set_current_tab(Cache.get_subject_dict()["Weeknum"] - 1)
-	
 	
 func update_subject_list(output: Dictionary):
 	
@@ -43,8 +48,7 @@ func update_subject_list(output: Dictionary):
 		for j in range(10):
 			formated_date += date[j]
 		
-		var days_left: int = ((Time.get_unix_time_from_datetime_string(formated_date) - Time.get_unix_time_from_system()) / 86400)
-		
+		var days_left: int = TimeClass.get_day_of_year_int_from_date_string(formated_date) - TimeClass.get_day_of_year_int_from_date_string(Time.get_date_string_from_system())
 		
 		if days_left < 0:
 			expired_subject_count += 1
@@ -57,8 +61,8 @@ func update_subject_list(output: Dictionary):
 #			new_override.border_width_top = 0
 			subject_box_instance.add_stylebox_override("panel", new_override)
 		
-		if days_left <= 5 and days_left > 0:
-			subject_box_instance.get_node("Control/Date").set_text(formated_date + "\n" + str(days_left+1) + "d left")
+		if days_left <= 7 and days_left > 0:
+			subject_box_instance.get_node("Control/Date").set_text(formated_date + "\n" + str(days_left) + "d left")
 		elif days_left == 0:
 			var new_override: StyleBoxFlat = load("res://Resources/Styles/SubjectBoxStyleBox.tres").duplicate()
 			new_override.border_color = Color.goldenrod

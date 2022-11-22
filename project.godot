@@ -21,6 +21,7 @@ config/windows_native_icon="res://Resources/Icons/a9dc7-211tr-001.ico"
 
 ApiContainer="*res://Singletons/ApiContainer.gd"
 Cache="*res://Singletons/Cache.gd"
+TimeClass="*res://Singletons/TimeClass.gd"
 
 [display]
 
@@ -49,3 +50,4 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+vram_compression/import_pvrtc=true
